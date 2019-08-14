@@ -1,0 +1,46 @@
+html {
+  background-color: green;
+}
+img#bannerPicture {
+  position: fixed;
+  left: 26%;
+  top: 8%;
+}
+#responce {
+  margin: 0;
+  padding-left: 40%;
+  position: absolute;
+  color: white;
+  top: 40%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+button#mainBTN {
+  position: fixed;
+  left: 42%;
+  top: 50%;
+  width: 250px;
+  height: 110px;
+  font-size: 24px;
+  background-color: orange;
+}
+#currentTeam {
+  position: fixed;
+  color: white;
+  font-size: 20px;
+  top: -11px;
+  left: 3px;
+}
+.hoverBTN {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.hoverBTN:hover {
+  border-style: solid;
+  border-color: black;
+  background-color: #4CAF50 !important; /* Green */
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
