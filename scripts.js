@@ -105,7 +105,6 @@ function newcastle() {
 
 // print function
 function printf(phrase) {
-  var phraseLength = phrase.length;
   document.getElementById('responce').innerHTML = phrase;
   document.getElementById('currentTeam').innerHTML = "<u><strong>Team: " + currentTeam + "</u></strong>";
 }

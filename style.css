@@ -1,42 +1,60 @@
 html {
   background-color: green;
 }
-img#bannerPicture {
-  position: fixed;
-  left: 26%;
-  top: 8%;
-}
-#responce {
-  margin: 0;
-  padding-left: 40%;
+
+footer {
   position: absolute;
-  color: white;
-  top: 40%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  right: 0px;
+  bottom: 0px;
+  text-align: right;
+  margin-right: 15px;
+  text-decoration: underline;
 }
-button#mainBTN {
+
+img#bannerPicture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8%;
+}
+
+#responce {
   position: fixed;
-  left: 42%;
-  top: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  top: 30%;
+  color: white;
+  text-align: center;
+  max-width: 30%;
+  min-width: 30%;
+}
+
+button#mainBTN {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 250px;
   height: 110px;
   font-size: 24px;
   background-color: orange;
+  margin-top: 10%;
 }
+
 #currentTeam {
-  position: fixed;
+  position: absolute;
   color: white;
   font-size: 20px;
   top: -11px;
   left: 3px;
 }
+
 .hoverBTN {
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+
 .hoverBTN:hover {
   border-style: solid;
   border-color: black;
