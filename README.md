@@ -1,6 +1,6 @@
 # Bluff-Ball
 
-bluff ball website off of "The IT Crowd". I do not have any affiliation with The IT Crowd
+bluff ball website off of "The IT Crowd". **I do not have any affiliation with The IT Crowd**
 
 ---
 
