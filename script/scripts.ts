@@ -1,41 +1,39 @@
-const openerList = ["Did you see that ludicrous display last night"];
-const arsenalList = ["Thing about Arsenal is they always try walk it in!", "Look if they can keep Sanchez and Ozil who knows...", "They're just one or two players short from being the real deal...", "D'you see Arsenal Fan TV last night?", "D'you know Wenger nearly signed (insert any player here)?"];
-const manchesterList = ["See that's typical Mourinho there", "They just park the bus against big teams.", "The mind games have started"];
-const liverpoolList = ["Klopp needs to sort out that defence.", "Never gonna win the league with that defence...", "They're just one or two players short from being the real deal...", "If they have the Fab 4, then Daniel Sturridge is Pete Best", "They've got some of the best fans in England."];
-const chelseaList = ["I don't think Abramovich and (current Chelsea manager) get on that well...", "David Luiz has come back a much better player", "Never should've sold Matic..."];
-const newcastleList = ["Sure look, they're the sleeping giant of English football.", "They've got some of the best fans in England.", "If they get rid of Ashley, they'll be grand"];
+const openerList: string[] = ["Did you see that ludicrous display last night"];
+const arsenalList: string[] = ["Thing about Arsenal is they always try walk it in!", "Look if they can keep Sanchez and Ozil who knows...", "They're just one or two players short from being the real deal...", "D'you see Arsenal Fan TV last night?", "D'you know Wenger nearly signed (insert any player here)?"];
+const manchesterList: string[] = ["See that's typical Mourinho there", "They just park the bus against big teams.", "The mind games have started"];
+const liverpoolList: string[] = ["Klopp needs to sort out that defence.", "Never gonna win the league with that defence...", "They're just one or two players short from being the real deal...", "If they have the Fab 4, then Daniel Sturridge is Pete Best", "They've got some of the best fans in England."];
+const chelseaList: string[] = ["I don't think Abramovich and (current Chelsea manager) get on that well...", "David Luiz has come back a much better player", "Never should've sold Matic..."];
+const newcastleList: string[] = ["Sure look, they're the sleeping giant of English football.", "They've got some of the best fans in England.", "If they get rid of Ashley, they'll be grand"];
 
-let rounds = 0;
-let currentTeam = "None";
+let rounds: number = 0;
+let currentTeam: string = "None";
 let currentSaying: string;
 
 // this method needs to be refactored
-let findPhrase = () => {
+const findPhrase = () => {
   rounds++;
   if (rounds == 1) {
-    opener();
+    sayOpener();
     currentTeam = "None";
   } else {
     // pick whether to talk about a new team
-    // 10% chance to start talking about another team
+    // ~33.3% chance to start talking about another team
     if (!(Math.floor((Math.random() * 3) + 1) == 1) && !(currentTeam == "None")) {
-      // don't pick new team
-
       switch (currentTeam) {
         case "Arsenal":
-          arsenal();
+          sayArsenalLine();
           break;
         case "Manchester":
-          manchester();
+          sayManchesterLine();
           break;
         case "Liverpool":
-          liverpool();
+          sayLiverpoolLine();
           break;
         case "Chelsea":
-          chelsea();
+          sayChelseaLine();
           break;
         case "Newcastle":
-          newcastle();
+          sayNewcastleLine();
           break;
         default:
           alert("Error, new team not found!");
@@ -47,19 +45,19 @@ let findPhrase = () => {
       // pick new team to talk about
       switch (newTeam) {
         case 0:
-          arsenal();
+          sayArsenalLine();
           break;
         case 1:
-          manchester();
+          sayManchesterLine();
           break;
         case 2:
-          liverpool();
+          sayLiverpoolLine();
           break;
         case 3:
-          chelsea();
+          sayChelseaLine();
           break;
         case 4:
-          newcastle();
+          sayNewcastleLine();
           break;
         default:
           alert("Error, new team not found!");
@@ -72,59 +70,55 @@ let findPhrase = () => {
   }
 }
 
-let getOpener = () => {
-  let openerIndexOffset = Math.floor(Math.random() * openerList.length);
+const sayOpener = () => {
+  const openerIndexOffset = Math.floor(Math.random() * openerList.length);
   say(openerList[openerIndexOffset]);
 }
 
 // team sayings
 // TODO: I need to refactor this code
-let arsenal = (): void => {
+const sayArsenalLine = (): void => {
   currentTeam = "Arsenal";
-  var temps = Math.floor(Math.random() * arsenalList.length);
-  say(arsenalList[temps]);
+  const tempi = Math.floor(Math.random() * arsenalList.length);
+  say(arsenalList[tempi]);
 }
 
-let manchester = (): void => {
+const sayManchesterLine = (): void => {
   currentTeam = "Manchester";
-  var temps = Math.floor(Math.random() * manchesterList.length);
-  say(manchesterList[temps]);
+  const tempi = Math.floor(Math.random() * manchesterList.length);
+  say(manchesterList[tempi]);
 }
 
-let liverpool = (): void => {
+const sayLiverpoolLine = (): void => {
   currentTeam = "Liverpool";
-  var temps = Math.floor(Math.random() * liverpoolList.length);
-  say(liverpoolList[temps]);
+  const tempi = Math.floor(Math.random() * liverpoolList.length);
+  say(liverpoolList[tempi]);
 }
 
-let chelsea = (): void => {
+const sayChelseaLine = (): void => {
   currentTeam = "Chelsea";
-  var temps = Math.floor(Math.random() * chelseaList.length);
-  say(chelseaList[temps]);
+  const tempi = Math.floor(Math.random() * chelseaList.length);
+  say(chelseaList[tempi]);
 }
 
-let newcastle = (): void => {
+const sayNewcastleLine = (): void => {
   currentTeam = "Newcastle";
-  var temps = Math.floor(Math.random() * newcastleList.length);
-  say(newcastleList[temps]);
+  const tempi = Math.floor(Math.random() * newcastleList.length);
+  say(newcastleList[tempi]);
 }
 
 // print function
-let say = (phrase: string): void => {
+const say = (phrase: string): void => {
   // check that the new saying is not the same as is currently printed
   if (phrase === currentSaying) {
     findPhrase();
     return;
   }
 
-  const responseElement = document.getElementById("responce");
-  const teamElement = document.getElementById("currentTeam");
+  const responseElement = document.getElementById("responce") as HTMLElement;
+  const teamElement = document.getElementById("currentTeam") as HTMLElement;
 
-  if (responseElement !== undefined && teamElement !== undefined && responseElement !== null && teamElement !== null) {
-    responseElement.innerHTML = phrase;
-    teamElement.innerHTML = teamElement.innerHTML = `<u><strong>Team: ${currentTeam}</u></strong>`;
-    currentSaying = phrase;
-  } else {
-    console.error("Unexpected handled error...");
-  }
+  responseElement.innerHTML = phrase;
+  teamElement.innerHTML = teamElement.innerHTML = `<u><strong>Team: ${currentTeam}</u></strong>`;
+  currentSaying = phrase;
 }
