@@ -11,29 +11,28 @@ var currentSaying;
 var findPhrase = function () {
     rounds++;
     if (rounds == 1) {
-        opener();
+        sayOpener();
         currentTeam = "None";
     }
     else {
         // pick whether to talk about a new team
-        // 10% chance to start talking about another team
+        // ~33.3% chance to start talking about another team
         if (!(Math.floor((Math.random() * 3) + 1) == 1) && !(currentTeam == "None")) {
-            // don't pick new team
             switch (currentTeam) {
                 case "Arsenal":
-                    arsenal();
+                    sayArsenalLine();
                     break;
                 case "Manchester":
-                    manchester();
+                    sayManchesterLine();
                     break;
                 case "Liverpool":
-                    liverpool();
+                    sayLiverpoolLine();
                     break;
                 case "Chelsea":
-                    chelsea();
+                    sayChelseaLine();
                     break;
                 case "Newcastle":
-                    newcastle();
+                    sayNewcastleLine();
                     break;
                 default:
                     alert("Error, new team not found!");
@@ -45,19 +44,19 @@ var findPhrase = function () {
             // pick new team to talk about
             switch (newTeam) {
                 case 0:
-                    arsenal();
+                    sayArsenalLine();
                     break;
                 case 1:
-                    manchester();
+                    sayManchesterLine();
                     break;
                 case 2:
-                    liverpool();
+                    sayLiverpoolLine();
                     break;
                 case 3:
-                    chelsea();
+                    sayChelseaLine();
                     break;
                 case 4:
-                    newcastle();
+                    sayNewcastleLine();
                     break;
                 default:
                     alert("Error, new team not found!");
@@ -67,36 +66,36 @@ var findPhrase = function () {
         // end of ongoing convosation
     }
 };
-var getOpener = function () {
+var sayOpener = function () {
     var openerIndexOffset = Math.floor(Math.random() * openerList.length);
     say(openerList[openerIndexOffset]);
 };
 // team sayings
 // TODO: I need to refactor this code
-var arsenal = function () {
+var sayArsenalLine = function () {
     currentTeam = "Arsenal";
-    var temps = Math.floor(Math.random() * arsenalList.length);
-    say(arsenalList[temps]);
+    var tempi = Math.floor(Math.random() * arsenalList.length);
+    say(arsenalList[tempi]);
 };
-var manchester = function () {
+var sayManchesterLine = function () {
     currentTeam = "Manchester";
-    var temps = Math.floor(Math.random() * manchesterList.length);
-    say(manchesterList[temps]);
+    var tempi = Math.floor(Math.random() * manchesterList.length);
+    say(manchesterList[tempi]);
 };
-var liverpool = function () {
+var sayLiverpoolLine = function () {
     currentTeam = "Liverpool";
-    var temps = Math.floor(Math.random() * liverpoolList.length);
-    say(liverpoolList[temps]);
+    var tempi = Math.floor(Math.random() * liverpoolList.length);
+    say(liverpoolList[tempi]);
 };
-var chelsea = function () {
+var sayChelseaLine = function () {
     currentTeam = "Chelsea";
-    var temps = Math.floor(Math.random() * chelseaList.length);
-    say(chelseaList[temps]);
+    var tempi = Math.floor(Math.random() * chelseaList.length);
+    say(chelseaList[tempi]);
 };
-var newcastle = function () {
+var sayNewcastleLine = function () {
     currentTeam = "Newcastle";
-    var temps = Math.floor(Math.random() * newcastleList.length);
-    say(newcastleList[temps]);
+    var tempi = Math.floor(Math.random() * newcastleList.length);
+    say(newcastleList[tempi]);
 };
 // print function
 var say = function (phrase) {
@@ -107,12 +106,7 @@ var say = function (phrase) {
     }
     var responseElement = document.getElementById("responce");
     var teamElement = document.getElementById("currentTeam");
-    if (responseElement !== undefined && teamElement !== undefined && responseElement !== null && teamElement !== null) {
-        responseElement.innerHTML = phrase;
-        teamElement.innerHTML = teamElement.innerHTML = "<u><strong>Team: " + currentTeam + "</u></strong>";
-        currentSaying = phrase;
-    }
-    else {
-        console.error("Unexpected handled error...");
-    }
+    responseElement.innerHTML = phrase;
+    teamElement.innerHTML = teamElement.innerHTML = "<u><strong>Team: " + currentTeam + "</u></strong>";
+    currentSaying = phrase;
 };
