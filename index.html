@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Your guide to football parlance">
-    <title>Bluff Ball - Your guide to football parlance</title>
-    <img id="bannerPicture" src="imgs/banner.png" alt="BluffBall" onclick="location.reload();" />
-    <link rel="stylesheet" href="style/dist/style.css">
-    <script type="text/javascript" src="script/dist/scripts.js" charset="utf-8" defer></script>
-  </head>
 
-  <body>
-    <h2 id="currentTeam" class="output"><u><strong>Team: None</strong></u></h2>
-    <h2 id="responce" class="output" style="left: 35%;"></h2>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Your guide to football parlance">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bluff Ball - Your guide to football parlance</title>
+  <link rel="stylesheet" href="style/style.css">
+  <script type="text/javascript" src="script/script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h2 id="currentTeam"><u><strong>Team: None</strong></u></h2>
+    <div class="banner">
+      <img id="bannerPicture" src="imgs/banner.png" alt="BluffBall" onclick="location.reload();" />
+    </div>
+  </header>
+
+
+  <div class="content">
+    <h2 id="response"></h2>
     <button id="mainBTN" class="hoverBTN" type="button" onclick="findPhrase();"><i>Get Phrase</i></button>
-  </body>
+  </div>
+</body>
 
-  <footer>
-    <p>
-      I do not have any affiliation with The IT Crowd <br>
-      <a href="https://github.com/hudson-newey/Bluff-Ball">GitHub Source Code</a><br>
-      <a href="https://github.com/hudson-newey/Bluff-Ball/issues">Submit a New Phrase</a>
-    </p>
-  </footer>
+<footer>
+  <p class="disclaimer">
+    <strong>I do not have any affiliation with The IT Crowd.</strong>
+  </p>
+
+  <p>
+    <a class="source-code" href="https://github.com/hudson-newey/Bluff-Ball">GitHub Source Code</a>
+  </p>
+</footer>
+
 </html>
