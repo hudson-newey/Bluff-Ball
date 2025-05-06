@@ -1,3 +1,7 @@
+button {
+  touch-action: manipulation;
+}
+
 body {
   background-color: green;
 }
@@ -47,7 +51,7 @@ footer {
   & > #response {
     display: block;
 
-    max-width: 30%;
+    max-width: min(max(30%, 400px), 95%);
     min-width: 30%;
     min-height: 8em;
 
